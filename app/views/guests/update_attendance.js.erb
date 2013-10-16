@@ -1,0 +1,9 @@
+if (<%= @guest.coming %> == true) {
+  //alert("<%=@guest.name%> is coming!")
+  $('#can_<%= @guest.id %>').css({'color':'green'});
+  $('#cant_<%= @guest.id %>').css({'color':'black'});
+} else {
+  //alert("<%=@guest.name%> can't make it")
+  $('#can_<%= @guest.id %>').css({'color':'black'});
+  $('#cant_<%= @guest.id %>').css({'color':'red'});
+}

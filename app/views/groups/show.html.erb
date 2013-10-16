@@ -1,0 +1,10 @@
+Updated email is: <%= @group.email %> 
+<ul>
+<% @guests.each do |guest| %>
+  <li>
+    <h2><%= guest.name %></h2>
+    <%= link_to "Cant Wait", update_attendance_path(guest, :coming => true), id: "can_#{guest.id}", class: "coming", remote: true %>
+     <%= link_to "Cant make it", update_attendance_path(guest, :coming => false), id: "cant_#{guest.id}", class: "passing", remote: true %>
+  </li>
+<% end %>
+</ul>
