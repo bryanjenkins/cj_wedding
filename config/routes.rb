@@ -4,6 +4,7 @@ Wedding::Application.routes.draw do
   root to: 'guests#index'
 
   get '/update_attendance/:id', to: 'guests#update_attendance', as: :update_attendance
+  match '/thanks', to: 'groups#finish', as: :finish
 
   #get 'groups/:random_group_id', :to => 'guests#index', as: :find_group   
   

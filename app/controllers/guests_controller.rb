@@ -1,13 +1,17 @@
 class GuestsController < ApplicationController
   def index 
-    @group = Group.new
+    if session[:group]
+      redirect_to group_path(session[:group])
+    else
+      @group = Group.new
+    end
   end
 
   def update_attendance
     @guest = Guest.find(params[:id])
     @guest.update_attribute(:coming, params[:coming])
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html
       format.js 
     end
     

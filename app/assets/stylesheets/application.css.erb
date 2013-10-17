@@ -1,0 +1,264 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ /* Main */
+html {
+  background: url(<%=asset_path "bg.png"%>) no-repeat center center fixed;;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-input-placeholder {
+  font-weight: 300;
+  color: #959595;
+}
+:-moz-placeholder { /* Firefox 18- */
+   font-weight: 300;
+   color: #959595;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   font-weight: 300;
+   color: #959595;  
+}
+:-ms-input-placeholder {  
+   font-weight: 300;
+   color: #959595;  
+}
+
+.container {
+  clear: both;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+ /* Header */
+
+ header {
+  width: 100%;
+  margin-top: 50px;
+  float: left;
+ }
+
+ #logo {
+  float: left;
+ }
+
+ #coming-soon {
+  float: right;
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+ }
+
+ /* Content */
+
+ .large-text {
+  font-family: 'Raleway';
+  font-weight: 300;
+  font-size: 69px;
+  letter-spacing: 50px;
+  text-align: center;
+  margin-top: 182px;
+  padding-left: 37px;
+  clear: both;
+ }
+
+ .large-ribbon {
+  margin: 10px 0 20px;
+  text-align: center;
+ }
+
+ .small-ribbon {
+  margin: 182px 0 50px;
+  text-align: center;
+ }
+
+  .small-ribbon.less-margin {
+    margin: 50px 0 40px;
+  }
+
+ .engagement-font {
+  font-size: 20px;
+  font-family: 'Stint Ultra Expanded';
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
+ }
+
+ form {
+  text-align: center;
+ }
+
+ input[type=text] {
+  width: 274px;
+  font-family: 'Raleway';
+  border-radius: 3px;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #373737;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-appearance: none;
+  border: none;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow:    3px 3px 3px rgba(0, 0, 0, 0.21);
+  box-shadow:         3px 3px 3px rgba(0, 0, 0, 0.21);
+ }
+
+ input[type=submit] {
+  margin-left: 20px;
+  font-family: 'Raleway';
+  padding: 8px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  background: #fe4f5f;
+  width: 142px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  border: none;
+ } 
+
+
+ p {
+  padding: 0 28.5%;
+  text-transform: uppercase;
+  line-height: 20px;
+  font-size: 13px;
+  font-family: 'Raleway';
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 30px;
+ }
+
+  ul {
+    width: 30.359375%;
+    margin-left: 28.417968%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 6.4% 13px;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+    ul h2 {
+      font-family: 'Raleway';
+      font-size: 23px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+
+    ul li {
+      border-top: 1px solid #fff;
+      padding-bottom: 44px;
+    }
+
+      ul li:nth-child(1) {
+        border-top: none;
+      }
+
+      ul li:after {
+        border-top: 1px solid #fff;
+      }
+
+
+/* Buttons */ 
+
+.btn {
+  font-family: 'Raleway';
+  width: 32%;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.43);
+}
+
+.selected {
+  background: #fe4f5f;
+  border-color: #fe4f5f;
+}
+
+.coming {
+  padding: 10px 27px;
+}
+
+.passing {
+  padding: 10px 17px;
+  margin-left: 37px;
+}
+
+.next-btn {
+  font-family: 'Raleway';
+  width: 32%;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fe4f5f;
+  border-color: #fe4f5f;
+  padding: 10px 44px;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#thank-you {
+  font-size: 23px;
+  font-family: 'Raleway';
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#you-should {
+  font-size: 23px;
+  font-family: 'Raleway';
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0 31%;
+}
+

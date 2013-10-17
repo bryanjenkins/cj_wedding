@@ -1,10 +1,12 @@
-Updated email is: <%= @group.email %> 
-<ul>
+<div class="small-ribbon less-margin"> <%= image_tag("group-info.png") %> </div>
+<ul id="guest-list">
 <% @guests.each do |guest| %>
   <li>
     <h2><%= guest.name %></h2>
-    <%= link_to "Cant Wait", update_attendance_path(guest, :coming => true), id: "can_#{guest.id}", class: "coming", remote: true %>
-     <%= link_to "Cant make it", update_attendance_path(guest, :coming => false), id: "cant_#{guest.id}", class: "passing", remote: true %>
+    <%= link_to "Cant Wait", update_attendance_path(guest, :coming => true), id: "can_#{guest.id}", class: (guest.coming == true ? "coming btn selected" : "coming btn"), remote: true %>
+     <%= link_to "Cant make it", update_attendance_path(guest, :coming => false), id: "cant_#{guest.id}", class: (guest.coming == false ? "passing btn selected" : "passing btn"), remote: true %>
   </li>
 <% end %>
 </ul>
+
+<%= link_to "Submit", finish_path, class: "next-btn" %>

@@ -1,7 +1,7 @@
-<h1> RSVP </h1>
-<div class="large-ribbon"> &mdash; FOR &mdash; </div>
+<div class="large-text"> RSVP </div>
+<div class="large-ribbon"> <%= image_tag("for.png") %> </div>
 <div class="engagement-font"> the engagement soiree </div>
 <%= form_tag groups_path, method: 'get' do |f|%>
-  <%= text_field_tag :random_group_id, params[:random_group_id] %>
+  <%= text_field_tag :random_group_id, params[:random_group_id], placeholder: "YOUR GROUP ID" %>
   <%= submit_tag "Submit" %>
 <% end %>
