@@ -8,16 +8,43 @@
 
 
 # --------------------------------------------------
+#  To implement changes run:
+#   heroku run rake db:seed
 
-#  -- BEFORE RUNNING THIS REMEMBER TO: !!!!
-#
-#  heroku run rake db:drop:all
-#  heroku run rake db:create:all
-#  heroku run rake db:migrate
-#
-#  -- THEN 
-#
-#  heroku run rake db:seed
+@config = ActiveRecord::Base.configurations[::Rails.env]
+ActiveRecord::Base.establish_connection
+
+
+case @config["adapter"]
+when "mysql", "mysql2"
+  ActiveRecord::Base.connection.execute("TRUNCATE groups")
+  ActiveRecord::Base.connection.execute("TRUNCATE guests")
+  puts "Table groups truncated!"
+  puts "Table guests truncated!"
+when "sqlite", "sqlite3"
+  ActiveRecord::Base.connection.execute("DELETE FROM groups")
+  ActiveRecord::Base.connection.execute("DELETE FROM guests")
+  puts "Table groups deleted!"
+  puts "Table guests deleted!"
+  ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence where name='groups'")
+  ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence where name='guests'")
+  puts "sqlite_sequence of groups deleted!"
+  puts "sqlite_sequence of guests deleted!"
+  ActiveRecord::Base.connection.execute("VACUUM")
+  puts "database vacuumed!"
+when "postgresql"
+  # if you use postgresql 8.4 or later, you can use "TRUNCATE XXX RESTART IDENTITY"
+#        ActiveRecord::Base.connection.execute("TRUNCATE #{table} RESTART IDENTITY")
+#        puts "Table #{table} truncated!(with RESTART IDENTITY)"
+  ActiveRecord::Base.connection.execute("TRUNCATE groups")
+  ActiveRecord::Base.connection.execute("TRUNCATE guests")
+  puts "Table groups truncated!"
+  puts "Table guests truncated!"
+  ActiveRecord::Base.connection.execute("SELECT setval('groups_id_seq', 1, false)");
+  ActiveRecord::Base.connection.execute("SELECT setval('guests_id_seq', 1, false)");
+  puts "Sequence (groups_id_seq) is reset!"
+  puts "Sequence (guests_id_seq) is reset!"
+end
 
 groups = Group.create([ 
   { random_group_id: 3725 }, #1
@@ -46,6 +73,8 @@ groups = Group.create([
   { random_group_id: 3723 }, #24
   { random_group_id: 3840 }  #25
 ]) 
+
+puts "#{groups.count} groups created with first Id being #{groups.first.id}"
 
 guests = Guest.create([ 
   { name: 'Ann Margolis', group_id: 1 }, 
@@ -107,5 +136,6 @@ guests = Guest.create([
   { name: 'Plus One', group_id: 24 }, 
   { name: 'Lisa Yeaple', group_id: 25 }, 
   { name: 'Dan Yeaple', group_id: 25 }
-  
 ])
+
+puts "#{guests.count} groups created with first Id being #{guests.first.id}"
