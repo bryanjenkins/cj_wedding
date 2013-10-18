@@ -29,7 +29,7 @@ groups = Group.create([
   { random_group_id: 3784 }, #19
   { random_group_id: 3838 }, #20
   { random_group_id: 3964 }, #21
-  { random_group_id: 3872 }, #22
+  { random_group_id: 3672 }, #22
   { random_group_id: 3048 }, #23
   { random_group_id: 3723 }, #24
   { random_group_id: 3840 }  #25
