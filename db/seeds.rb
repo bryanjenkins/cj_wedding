@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+ActiveRecord::Base.connection.execute("DELETE FROM groups;")
 
 groups = Group.create([ 
   { random_group_id: 3725 }, #1
@@ -34,6 +35,8 @@ groups = Group.create([
   { random_group_id: 3723 }, #24
   { random_group_id: 3840 }  #25
 ]) 
+
+ActiveRecord::Base.connection.execute("DELETE FROM guests;")
 
 guests = Guest.create([ 
   { name: 'Ann Margolis', group_id: 1 }, 
