@@ -6,7 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-ActiveRecord::Base.connection.execute("DELETE FROM groups;")
+
+# --------------------------------------------------
+
+#  -- BEFORE RUNNING THIS REMEMBER TO: !!!!
+#
+#  heroku run rake db:drop:all
+#  heroku run rake db:create:all
+#  heroku run rake db:migrate
+#
+#  -- THEN 
+#
+#  heroku run rake db:seed
 
 groups = Group.create([ 
   { random_group_id: 3725 }, #1
@@ -35,8 +46,6 @@ groups = Group.create([
   { random_group_id: 3723 }, #24
   { random_group_id: 3840 }  #25
 ]) 
-
-ActiveRecord::Base.connection.execute("DELETE FROM guests;")
 
 guests = Guest.create([ 
   { name: 'Ann Margolis', group_id: 1 }, 
