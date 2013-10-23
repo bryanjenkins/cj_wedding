@@ -6,6 +6,8 @@ Wedding::Application.routes.draw do
   get '/update_attendance/:id', to: 'guests#update_attendance', as: :update_attendance
   match '/thanks', to: 'groups#finish', as: :finish
 
+  match '/cjisawesome', to: 'guests#view_all', as: :cjisawesome
+
   #get 'groups/:random_group_id', :to => 'guests#index', as: :find_group   
   
   #get 'groups/:random_group_id', to: 'groups#search'

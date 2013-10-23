@@ -22,4 +22,9 @@ class GuestsController < ApplicationController
     #   redirect_to group_path(@guest.group), notice: 'Unable to update guests status.'
     # end
   end
+
+  def view_all
+    @guests = Guest.all
+  end
+  
 end

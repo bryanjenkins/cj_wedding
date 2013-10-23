@@ -1,0 +1,24 @@
+
+<h1>Coming</h1>
+<hr>
+<% @guests.each do |g| %>
+  <% if g.coming == true %>
+    <div class="engagement-font"><%= g.name%> </div>
+    <% end %>
+<% end %>
+
+<h1>Not Coming</h1>
+<hr>
+<% @guests.each do |g| %>
+  <% if g.coming == false %>
+    <div class="engagement-font"><%= g.name%> </div>
+    <% end %>
+<% end %>
+
+<h1>Haven't Responded</h1>
+<hr>
+<% @guests.each do |g| %>
+  <% if g.coming == nil %>
+    <div class="engagement-font"><%= g.name%> </div>
+    <% end %>
+<% end %>
